@@ -9,7 +9,7 @@ const logger = require('koa-logger')
 const index = require('./routes/index')
 const users = require('./routes/users')
 
-// error handler
+// error handler   在页面显示错误信息
 onerror(app)
 
 // middlewares
@@ -36,7 +36,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 
-// error-handling
+// error-handling  程序onerror时，在控制台打印的错误日志
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
